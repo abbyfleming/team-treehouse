@@ -28,28 +28,30 @@ def add_to_list(new_item):
 	print("Added {}. List now has {} items".format(new_item, len(shopping_list)))
 
 
+def menu_loop():
 
-show_help()
+	choice = None
+	while choice != 'DONE':
+		
+		# ask for new items
+		new_item = input("> ")
 
-while True:
-	# ask for new items
-	new_item = input("> ")
+		# be able to quit the app
+		if new_item == 'DONE':
+			break
+		elif new_item == 'HELP':
+			show_help()
+			continue
+		elif new_item == 'SHOW':
+			show_list()
+			continue
 
-	# be able to quit the app
-	if new_item == 'DONE':
-		break
-
-	elif new_item == 'HELP':
-		show_help()
-		continue
-
-	elif new_item == 'SHOW':
-		show_list()
-		continue
-
-	add_to_list(new_item)
+		#add input to list
+		add_to_list(new_item)
 
 
-show_list()
+if __name__ == '__main__':
+  show_help()
+  menu_loop()
 
 
